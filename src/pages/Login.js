@@ -23,13 +23,17 @@ const useStyles = makeStyles({
   },
   title: {
     color: '#C0392B', // Christmas Red
+	  fontFamily: "'Mountains of Christmas', cursive !important", 
     marginBottom: '16px',
-    fontFamily: 'cursive', // Cursive font for a festive touch
   },
   textField: {
     marginBottom: '16px', // Adjust the spacing between text fields
     '& label.Mui-focused': {
       color: '#C0392B', // Christmas Red when focused
+	    fontFamily: "'Mountains of Christmas', cursive !important", 
+    },
+    '& :not(label.Mui-focused)': {
+	    fontFamily: "'Mountains of Christmas', cursive !important", 
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
@@ -45,15 +49,17 @@ const useStyles = makeStyles({
     },
   },
   button: {
-    marginTop: '16px', // Add spacing between text fields and button
-    backgroundColor: '#E74C3C', // Christmas Red for the button
-    color: '#FFFFFF', // White text
-    borderRadius: '25px', // Rounded edges
-    padding: '10px 20px', // Padding
-    fontSize: '1rem', // Font size
-    fontWeight: 'bold', // Bold text
+    marginTop: '16px',
+    backgroundColor: '#2E86C1', // Dark blue for the button
+    color: '#FFFFFF',
+    borderRadius: '25px',
+    padding: '15px 25px',
+    fontSize: '5rem',
+    fontWeight: 'bold',
+    backgroundImage: 'linear-gradient(45deg, #3498db, #2ecc71)', // Gradient background
+    border: 'none',
     '&:hover': {
-      backgroundColor: '#C0392B', // Darker red on hover
+      backgroundColor: '#3498db', // Lighter blue on hover
     },
   }
 });
@@ -70,7 +76,7 @@ const ChristmasLogin = () => {
     // Check if username is "abc" and password is "abcd"
     if (username === 'abc' && password === 'abcd') {
       // Redirect to /hi route
-      navigate('/hi');
+      navigate('/password');
     } else {
       // Show error dialog for incorrect login
       setOpenErrorDialog(true);
@@ -84,7 +90,7 @@ const ChristmasLogin = () => {
   return (
     <div className={classes.root}>
       <Paper elevation={3} className={classes.paper}>
-        <Typography variant="h5" className={classes.title}>
+        <Typography variant="h3" className={classes.title}>
           🎄 Login 🎅
         </Typography>
         <Box mb={2} />
@@ -95,6 +101,7 @@ const ChristmasLogin = () => {
           className={classes.textField}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+		  
         />
         <Box mb={2} />
         <TextField
@@ -113,7 +120,9 @@ const ChristmasLogin = () => {
           fullWidth
           onClick={handleLogin}
         >
-          Login
+          <Typography variant="h4">
+          🎁
+        </Typography>
         </Button>
 
         {/* Error Dialog */}
