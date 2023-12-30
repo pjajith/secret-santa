@@ -42,7 +42,7 @@ const Coupon = () => {
 				</Typography>
 				<br />
 				<Typography variant="h8" className={classes.title} style={{ color: 'black' }}>
-					... Oops! I forgot to include the gift here, Maybe Yeshwant has an idea.
+					... Oops! I forgot to include the gift here, Maybe Yeshwant knows where the gift is.
 				</Typography>
 				<br />
 				<Typography variant="h8" className={classes.title} style={{ color: 'black' }}>
