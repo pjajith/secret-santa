@@ -10,11 +10,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<div><Login /></div>}/>
-          <Route path="/password" element={<Password/>}/>
-          <Route path="/human" element={<Wordle/>}/>
-          <Route path="/coupon" element={<Coupon/>}/>
-          <Route path="/*" element={<NotFound/>}/>
+          <Route index element={<div><Login /></div>} />
+          <Route path="/password" element={<Password />} />
+          <Route path="/human" element={<Wordle />} />
+          <Route path="/congrats" element={<Coupon />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -23,17 +23,17 @@ const useStyles = makeStyles({
   },
   title: {
     color: '#C0392B', // Christmas Red
-	  fontFamily: "'Mountains of Christmas', cursive !important", 
+    fontFamily: "'Mountains of Christmas', cursive !important",
     marginBottom: '16px',
   },
   textField: {
     marginBottom: '16px', // Adjust the spacing between text fields
     '& label.Mui-focused': {
       color: '#C0392B', // Christmas Red when focused
-	    fontFamily: "'Mountains of Christmas', cursive !important", 
+      fontFamily: "'Mountains of Christmas', cursive !important",
     },
     '& :not(label.Mui-focused)': {
-	    fontFamily: "'Mountains of Christmas', cursive !important", 
+      fontFamily: "'Mountains of Christmas', cursive !important",
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
@@ -74,7 +74,7 @@ const ChristmasLogin = () => {
 
   const handleLogin = () => {
     // Check if username is "abc" and password is "abcd"
-    if (username === 'abc' && password === 'abcd') {
+    if (username === 'shahwaz' && password === 'christmas@2023') {
       // Redirect to /hi route
       navigate('/password');
     } else {
@@ -101,7 +101,7 @@ const ChristmasLogin = () => {
           className={classes.textField}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-		  
+
         />
         <Box mb={2} />
         <TextField
@@ -121,15 +121,15 @@ const ChristmasLogin = () => {
           onClick={handleLogin}
         >
           <Typography variant="h4">
-          🎁
-        </Typography>
+            🎁
+          </Typography>
         </Button>
 
         {/* Error Dialog */}
         <Dialog open={openErrorDialog} onClose={handleCloseErrorDialog}>
-          <DialogTitle>Error</DialogTitle>
+          <DialogTitle >Error</DialogTitle>
           <DialogContent>
-            <DialogContentText>
+            <DialogContentText style={{ fontFamily: 'Mountains of Christmas' }}>
               Incorrect password. Please try again.
             </DialogContentText>
           </DialogContent>
