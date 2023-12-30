@@ -210,9 +210,9 @@ const Password = () => {
             <DialogContentText style={{ fontFamily: 'Mountains of Christmas' }}>
               <b>Not strong enough.</b> Use <a href='https://neal.fun/password-game' target="_blank" rel="noreferrer">Password Game</a> to generate password
             </DialogContentText>
-            <br></br>
-            <DialogContentText style={{ fontFamily: 'Mountains of Christmas' }}>
-              Atleast till <b>Rule #9</b>
+
+            <DialogContentText>
+              <h3>Note: Atleast till <b>Rule #9</b></h3>
             </DialogContentText>
           </DialogContent>
           <DialogActions>
