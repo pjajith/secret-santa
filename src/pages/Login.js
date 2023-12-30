@@ -1,8 +1,9 @@
 // ChristmasLogin.js
 
-import React from 'react';
-import { Paper, Typography, TextField, Button, Box } from '@mui/material';
+import React, { useState } from 'react';
+import { Paper, Typography, TextField, Button, Box, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -54,41 +55,79 @@ const useStyles = makeStyles({
     '&:hover': {
       backgroundColor: '#C0392B', // Darker red on hover
     },
-  },
+  }
 });
 
 const ChristmasLogin = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [openErrorDialog, setOpenErrorDialog] = useState(false);
+
+  const handleLogin = () => {
+    // Check if username is "abc" and password is "abcd"
+    if (username === 'abc' && password === 'abcd') {
+      // Redirect to /hi route
+      navigate('/hi');
+    } else {
+      // Show error dialog for incorrect login
+      setOpenErrorDialog(true);
+    }
+  };
+
+  const handleCloseErrorDialog = () => {
+    setOpenErrorDialog(false);
+  };
 
   return (
     <div className={classes.root}>
       <Paper elevation={3} className={classes.paper}>
         <Typography variant="h5" className={classes.title}>
-          🎄 Christmas Login 🎅
+          🎄 Login 🎅
         </Typography>
-        <Box mb={2} /> {/* Add spacing above the text fields */}
+        <Box mb={2} />
         <TextField
           label="Username"
           variant="outlined"
           fullWidth
           className={classes.textField}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
-        <Box mb={2} /> {/* Add spacing between text fields */}
+        <Box mb={2} />
         <TextField
           label="Password"
           variant="outlined"
           type="password"
           fullWidth
           className={classes.textField}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <Box mb={2} /> {/* Add spacing between text fields and button */}
+        <Box mb={2} />
         <Button
           variant="contained"
           className={classes.button}
           fullWidth
+          onClick={handleLogin}
         >
           Login
         </Button>
+
+        {/* Error Dialog */}
+        <Dialog open={openErrorDialog} onClose={handleCloseErrorDialog}>
+          <DialogTitle>Error</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Incorrect password. Please try again.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseErrorDialog}>OK</Button>
+          </DialogActions>
+        </Dialog>
       </Paper>
     </div>
   );
